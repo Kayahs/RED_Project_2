@@ -15,7 +15,7 @@ gulp.task('scripts', ['cleanJS'],/*['lint'],*/ function() {
 	.pipe(gulp.dest('./build/js'));
 });
 
-gulp.task('watch', ['browser-sync'], function() {
+gulp.task('watch', ['browser-sync', 'default'], function() {
 	gulp.watch(['scripts/*.js', 'styles/sass/*.scss'], ['scripts', 'styles']);
 });
 
@@ -70,7 +70,7 @@ gulp.task('default',  ['styles', 'scripts'], function() {
 	}));
 });
 */
-gulp.task('cleanAll', function() {
+gulp.task('clean', function() {
 	return gulp.src('build/**/*.*').pipe(clean());
 });
 

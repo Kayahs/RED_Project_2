@@ -85,7 +85,7 @@ header {
   }
 }
 .logo {
-	height: 40%;
+	height: 35%;
   padding: 25px;
 }
 footer {
@@ -124,6 +124,12 @@ footer {
   }
 }
 @media screen and (max-width: 1239px) {
+  footer {
+    width: 100%;
+    text-align: center;
+    padding: 4% 0;
+    margin: auto;
+  }
   @media screen and (min-width: 600px) {
     #articleArea {
       a {
@@ -134,5 +140,29 @@ footer {
         }
       }
     }
+    header {
+      justify-content: center;
+    }
+  }
+}
+@media (max-width: 599px) {
+  #articleArea {
+    a {
+      width: 100%;
+      .articleExcerpt {
+        font-size: 18px;
+        line-height: 25px;
+      }
+    }
+  }
+  header {
+    display: flex;
+    flex-direction: column;
+    &.hasArticles{
+      height: 41vh;
+    }
+  }
+  .logo {
+    height: 50%;
   }
 }
