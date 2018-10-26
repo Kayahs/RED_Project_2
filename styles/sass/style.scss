@@ -97,6 +97,15 @@ footer {
 }
 #selectorForm{
   padding-top: 10px;
+  #sectionSelector {
+    background:url(../../assets/images/selectarrow.png) 0 0 no-repeat;
+    background-size: contain;
+    background-position: right;
+    -webkit-appearance: none;
+    background-color: white;
+    border:none;
+    width: 100%;
+  }
 }
 #articleArea {
   display: flex;
