@@ -9,18 +9,18 @@ var uglify = require('gulp-uglify'),
 	cleanCSS = require('gulp-clean-css');
 
 gulp.task('scripts', ['cleanJS'],/*['lint'],*/ function() {
-	return gulp.src('./scripts/*.js')
+	return gulp.src('assets/scripts/*.js')
 	.pipe(uglify())
 	.pipe(rename({extname: '.min.js'}))
-	.pipe(gulp.dest('./build/js'));
+	.pipe(gulp.dest('build/js'));
 });
 
 gulp.task('watch', ['browser-sync', 'default'], function() {
-	gulp.watch(['scripts/*.js', 'styles/sass/*.scss'], ['scripts', 'styles']);
+	gulp.watch(['assets/scripts/*.js', 'assets/styles/sass/*.scss'], ['scripts', 'styles']);
 });
 
 gulp.task('browser-sync', function() {
-	browserSync.init(['scripts/*.js', 'styles/sass/*.scss'],{
+	browserSync.init(['assets/scripts/*.js', 'assets/styles/sass/*.scss'],{
 		server: {
 			baseDir: "./"
 		}
@@ -28,16 +28,16 @@ gulp.task('browser-sync', function() {
 });
 
 gulp.task('scsstocss', function() {
-	return gulp.src('./styles/sass/*.scss')
+	return gulp.src('assets/styles/sass/*.scss')
 		.pipe(sass().on('error', sass.logError))
-		.pipe(gulp.dest('./styles/css'));
+		.pipe(gulp.dest('assets/styles/css'));
 });
 
 gulp.task('styles', ['scsstocss', 'cleanCSS'], function() {
-	return gulp.src('./styles/css/*.css')
+	return gulp.src('assets/styles/css/*.css')
 	.pipe(cleanCSS())
 	.pipe(rename({extname: '.min.css'}))
-	.pipe(gulp.dest('./build/css'));
+	.pipe(gulp.dest('build/css'));
 })
 
 gulp.task('default',  ['styles', 'scripts'], function() {
