@@ -37,7 +37,7 @@ gulp.task('styles', ['scsstocss', 'cleanCSS'], function() {
 	return gulp.src('assets/styles/css/*.css')
 	.pipe(cleanCSS())
 	.pipe(rename({extname: '.min.css'}))
-	.pipe(gulp.dest('build/css'));
+	.pipe(gulp.dest('build/styles/css'));
 })
 
 gulp.task('default',  ['styles', 'scripts'], function() {

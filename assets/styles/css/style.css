@@ -35,19 +35,19 @@ table {
 /*Font Declarations*/
 @font-face {
   font-family: "openSansBold";
-  src: url("../../assets/fonts/OpenSans-Bold.ttf"); }
+  src: url("../../fonts/OpenSans-Bold.ttf"); }
 
 @font-face {
   font-family: "openSansBoldItalic";
-  src: url("../../assets/fonts/OpenSans-BoldItalic.ttf"); }
+  src: url("../../fonts/OpenSans-BoldItalic.ttf"); }
 
 @font-face {
   font-family: "openSansLight";
-  src: url("../../assets/fonts/OpenSans-Light.ttf"); }
+  src: url("../../fonts/OpenSans-Light.ttf"); }
 
 @font-face {
   font-family: "openSansLightItalic";
-  src: url("../../assets/fonts/OpenSans-LightItalic.ttf"); }
+  src: url("../../fonts/OpenSans-LightItalic.ttf"); }
 
 /*Styles*/
 html {
@@ -81,7 +81,7 @@ footer {
 #selectorForm {
   padding-top: 10px; }
   #selectorForm #sectionSelector {
-    background: url(../../assets/images/selectarrow.png) 0 0 no-repeat;
+    background: url("../../images/selectarrow.png") 0 0 no-repeat;
     background-size: contain;
     background-position: right;
     -webkit-appearance: none;
@@ -101,13 +101,13 @@ footer {
     #articleArea a .articleImg {
       width: 100%; }
       #articleArea a .articleImg:hover + .articleExcerpt {
-        visibility: visible;
-        opacity: 1;
-        transition: opacity 0.5s linear; }
+        transform: scale(1, 1);
+        transition: transform 0.5s linear;
+        transform-origin: bottom; }
     #articleArea a .articleExcerpt {
-      visibility: hidden;
-      transition: visibility 0s 2s, opacity 0.5s linear;
-      opacity: 0;
+      transition: transform 0.5s linear;
+      transform: scale(1, 0);
+      transform-origin: bottom;
       position: absolute;
       left: 0;
       bottom: 0;
@@ -118,9 +118,9 @@ footer {
       line-height: 27px;
       padding: 15px 5%; }
       #articleArea a .articleExcerpt:hover {
-        visibility: visible;
-        opacity: 1;
-        transition: opacity 0.5s linear; }
+        transform: scale(1, 1);
+        transition: transform 0.5s linear;
+        transform-origin: bottom; }
 
 @media screen and (max-width: 1239px) {
   footer {
