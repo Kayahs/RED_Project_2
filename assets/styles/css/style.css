@@ -49,6 +49,7 @@ table {
   font-family: "openSansLightItalic";
   src: url("../../fonts/OpenSans-LightItalic.ttf"); }
 
+/*Mixins*/
 /*Styles*/
 html {
   font-family: "openSansLight";
@@ -66,6 +67,8 @@ header {
     height: 100vh; }
   header.hasArticles {
     height: 20vh; }
+  header.isLoading {
+    height: 70vh; }
 
 .logo {
   height: 60%;
@@ -90,6 +93,16 @@ footer {
     width: 100%;
     padding: 5%; }
 
+.loading {
+  display: none;
+  text-align: center; }
+  .loading img {
+    width: 50%;
+    height: 50%;
+    max-width: 200px;
+    max-height: 200px;
+    margin: auto; }
+
 #articleArea {
   display: flex;
   flex-wrap: wrap; }
@@ -97,7 +110,8 @@ footer {
     padding-bottom: 50px; }
   #articleArea a {
     width: 25%;
-    position: relative; }
+    position: relative;
+    display: none; }
     #articleArea a .articleImg {
       width: 100%; }
       #articleArea a .articleImg:hover + .articleExcerpt {
@@ -105,8 +119,8 @@ footer {
         transition: transform 0.5s linear;
         transform-origin: bottom; }
     #articleArea a .articleExcerpt {
-      transition: transform 0.5s linear;
       transform: scale(1, 0);
+      transition: transform 0.5s linear;
       transform-origin: bottom;
       position: absolute;
       left: 0;

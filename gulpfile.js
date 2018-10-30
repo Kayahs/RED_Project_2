@@ -1,16 +1,16 @@
 var gulp = require('gulp');
 
-var uglify = require('gulp-uglify'), 
+var minify = require('gulp-babel-minify'), 
 	rename = require('gulp-rename'), 
 	browserSync = require('browser-sync'),
-	eslint = require('gulp-eslint'),
+	jsValidate = require('gulp-jsvalidate'),
 	clean = require('gulp-clean'),
 	sass = require('gulp-sass')
 	cleanCSS = require('gulp-clean-css');
 
-gulp.task('scripts', ['cleanJS'],/*['lint'],*/ function() {
+gulp.task('scripts', ['cleanJS','lint'], function() {
 	return gulp.src('assets/scripts/*.js')
-	.pipe(uglify())
+	.pipe(minify())
 	.pipe(rename({extname: '.min.js'}))
 	.pipe(gulp.dest('build/js'));
 });
@@ -45,31 +45,11 @@ gulp.task('default',  ['styles', 'scripts'], function() {
 });
 
 
-/*gulp.task('lint', function() {
-	gulp.src('./scripts/*.js').pipe(eslint({
-		"extends": "eslint:recommended",
-		"rules": {
-			"no-alert": 1,
-			"camelcase": 1,
-			"curly": 1,
-			"eqeqeq": 1,
-			"no-console": 1,
-			"guard-for-in": 1,
-			"no-empty": 1,
-			"no-param-reassign": 1,
-			"no-unused-vars": 1,
-			"quotes": [ 1, "single"]
-		},
-		"globals": {
-		    "jQuery": false,
-		    "$": false
-		},
-		"env": {
-		"browser": true
-		}
-	}));
+gulp.task('lint', function() {
+	gulp.src('assets/scripts/*.js')
+	.pipe(jsValidate())
 });
-*/
+
 gulp.task('clean', function() {
 	return gulp.src('build/**/*.*').pipe(clean());
 });
